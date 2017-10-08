@@ -1,0 +1,55 @@
+*{
+	padding:0px;
+	margin:0px;
+}
+.boxDom{
+	width:100%;
+	height:549px;
+	position: relative;
+	overflow: hidden;
+	background-image: url(../images/bg.jpg);
+}
+.idDom{
+	width:100%;
+	height:60px;
+	position: fixed;
+	bottom:0px;
+	background-color: #666;
+}
+.content{
+	width:100%;
+	height: 40px;
+	position: absolute;
+	margin-left:450px;
+}
+.title{
+	color:#fff;
+	font-size: 24px;
+	line-height: 60px;
+
+}
+.text{
+	border:none;
+	width:300px;
+	height: 30px;
+	border-radius: 5px;
+	font-size: 20px;
+}
+.btn{
+	position: absolute;
+	width:60px;
+	height:30px;
+	background-color: red;
+	border:none;
+	color:#fff;
+	font-size:12px;
+	margin-left:15px;
+	margin-top:17px;
+}
+.string{
+	width:300px;
+	height: 40px;
+	position: absolute;
+	color:#000;
+	font-size:20px;
+}

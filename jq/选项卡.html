@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+</head>
+<style>
+	ul{
+		list-style: none;
+	}
+	.tab{
+		width: 500px;
+		height:250px;
+		margin-left:50px;
+		border:1px solid #000;
+		margin-top:50px;
+	}
+	.tab_menu{
+		position:absolute;
+		
+	}
+	.tab_menu ul{
+		margin-left:-25px;
+	}
+	.tab_menu ul li{
+		float:left;
+		width:80px;
+		height:35px;
+		text-align: center;
+		line-height: 35px;
+		margin-top:-11px;
+		margin-left:10px;
+	}
+	.tab_box{
+		margin-top:40px;
+		width:450px;
+		height:175px;
+		border:1px solid #000;
+		margin-left:25px;
+	}
+	.tab_box ul li{
+		float: left;
+		margin-left:-25px;
+	}
+	.selected{
+		background:#000;
+		color:#eee;
+	}
+	.hide{
+		display: none;
+	}
+</style>
+<body>
+<div class="tab">
+	<div class="tab_menu">
+		<ul>
+			<li class="selected">事实</li>
+			<li>体育</li>
+			<li>娱乐</li>
+		</ul>
+	</div>
+	<div class="tab_box">
+		<ul>
+			<li>事实</li>
+			<li class="hide">体育</li>
+			<li class="hide">娱乐</li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>
+<script>
+	$(function(){
+		$('div.tab_menu ul li').hover(function(){
+			$(this).addClass('selected').siblings().removeClass('selected');
+			var index=$('div.tab_menu ul li').index(this);
+			$('div.tab_box ul li').eq(index).show().siblings().hide();
+		})
+	})
+</script>

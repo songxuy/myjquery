@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>我的网页</title>
+	<script type="text/javascript" src="script/jquery-3.1.1.min.js"></script>
+</head>
+<style>
+*{
+	padding:0px;
+	margin:0px;
+}
+#header{
+	background: #000;
+	height:75px;
+}
+#header .conWidth{
+	position:relative;
+	height:75px;
+	width:990px;
+	margin:0 auto;
+	z-index: 100;
+}
+#header .conWidth img{
+	width:75px;
+	height:75px;
+}
+#header .search{
+	left:198px;
+	top:25px;
+	position:absolute;
+}
+#header .search .ssearch{
+	height:25px;
+	width:200px;
+}
+#header .search .subsea{
+	height:29px;
+	background: #eee;
+	margin-left:-8px;
+}
+#header ul li{
+    float: left;
+    list-style: none;
+    margin-left:35px;
+}
+#header #skin{
+	margin-left:700px;
+	margin-top:-50px;
+}
+a{
+	text-decoration: none;
+}
+.mainnav{
+	height:40px;
+	background:#616363;
+}
+.mainnav ul li{
+	float: left;
+	list-style: none;
+	margin-top:0px;
+	line-height:40px;
+	margin-left:45px;
+	width:70px;
+	height:40px;
+	text-align: center;
+}
+.mainnav ul li a{
+	color:#fff;
+}
+.mainnav .navc{
+	background: #fff;
+}
+.mainnav .navc a{
+	color:#000!important;
+}
+#jncatalog{
+	float:left;
+	height:700px;
+	margin-top:20px;
+	margin-left:30px;
+	overflow: hidden;
+	width:187px;
+	border:1px solid:#6e6e6e;
+	border-style: none solid solid;
+	border-width: 0 1px 1px;
+
+}
+#jncatalog h2{
+    height:30px;
+    line-height:30px;
+    color:#fff;
+    font-size:20px;
+    text-indent: 13px;
+    background-color: #6e6e6e;
+}
+.jncatainfo{
+	height:150px;
+	overflow: hidden;
+	padding:5px 10px 0;
+	width:165px;
+
+}
+ul li{
+	list-style: none;
+}
+.jncatainfo h3{
+	border-bottom: 1px solid #eeeeee;
+	height:24px;
+	line-height:24px;
+	width:164px;
+}
+.jncatainfo ul{
+	margin-top:5px;
+}
+.jncatainfo li{
+	color:#aeadae;
+	float: left;
+	height:24px;
+	line-height: 24px;
+	width:79px;
+	overflow: hidden;
+	position:relative;
+}
+.jncatainfo li a{
+	color:#444444;
+}
+.jncatainfo li a:hover{
+	color:#008cd7;
+}
+.jncatainfo li a.promoted{
+	color:#f9044e;
+}
+#jnimageroll{
+	float: left;
+	height:400px;
+	margin-top:20px;
+	margin-left:30px;
+	overflow: hidden;
+	position:relative;
+	width:700px;
+}
+#jnimageroll img{
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:695px;
+	height:300px;
+}
+#jnimageroll div{
+	float: left;
+	overflow: hidden;
+	position: absolute;
+	margin-top:300px;
+}
+#jnimageroll div a{
+	background-color: #444444;
+	color:#ffffff;
+	display:inline-block;
+	float: left;
+	height:40px;
+	margin-right: 1px;
+	padding:5px 15px;
+	overflow: hidden;
+	text-align: center;
+	width:85px;
+}
+#jnimageroll div a em{
+	cursor: pointer;
+	display: block;
+	overflow: hidden;
+	width:85px;
+}
+#jnnotice{
+	margin-top:20px;
+	margin-left:30px;
+	float: left;
+	height:360px;
+	overflow: hidden;
+	width:230px;
+}
+#jnmiaosha{
+	float: left;
+	height: 200px;
+	margin-bottom: 10px;
+	overflow: hidden;
+	width:230px;
+}
+#jnnoticeinfo{
+	margin-top:10px;
+	float: left;
+	border:1px solid #dfdfdf;
+	height:160px;
+	width:228px;
+}
+#jnnoticeinfo h3{
+	height:23px;
+	line-height: 23px;
+	border-bottom: 1px solid #dfdfdf;
+	text-indent: 12px;
+}
+#jnnoticeinfo ul{
+	float: left;
+	padding:6px 2px 2px 12px;
+}
+#jnnoticeinfo li{
+	height:20px;
+	line-height: 20px;
+}
+#jnnoticeinfo li a{
+	color:#666666;
+}
+#jnnoticeinfo li a:hover{
+	color:#008cd7;
+}
+#jnbrand{
+	float: left;
+	height:230px;
+	margin-top:10px;
+	margin-left:0px;
+	overflow: hidden;
+	width:1050px;
+}
+#jnbrandtab{
+	border-bottom: 1px solid #e4e4e4;
+	height:29px;
+	position: relative;
+	width:1050px;
+	float: left;
+
+}
+#jnbrandtab h3{
+	height:29px;
+	line-height: 29px;
+	left:30px;
+	position: absolute;
+	width:100px;
+
+}
+#jnbrandtab ul{
+	margin-top:5px;
+	margin-left: 760px;
+}
+#jnbrandtab li{
+	float:left;
+	margin-left:20px;
+	background-color: #e4e4e4;
+}
+#jnbrandtab li a{
+	color:#000000;
+	display: inline-block;
+	height:20px;
+	width:50px;
+	line-height: 20px;
+	text-align: center;
+}
+.tab a{
+	background:#000000!important;
+}
+#jnbrandtab .tab a{
+	color:#fff!important;
+}
+#jnbrandcontent{
+	float: left;
+	height:188px;
+	overflow: hidden;
+	margin-top:10px;
+	margin-left:5px;
+	width:1050px;
+	position: relative;
+}
+#jnbrandlist{
+	position: absolute;
+	left:0px;
+	top:0px;
+	width:3200px;
+}
+#jnbrandcontent li{
+	float: left;
+	height: 188px;
+	overflow: hidden;
+	position:230px;
+	margin-left:25px;
+}
+#jnbrandcontent li img{
+	width:230px;
+	height:160px;
+}
+#jnbrandcontent li span{
+	background: #efefef;
+	bottom: 0px;
+	color:#666666;
+	display: block;
+	font-size: 14px;
+	height: 24px;
+	line-height: 24px;
+	overflow: hidden;
+	position: absolute;
+	text-align: center;
+	width:230px;
+}
+#jnbrandcontent li a{
+	color:#666666;
+}
+#jnbrandcontent li a:hover{
+    color:#008cd7;
+}
+.jnNav{
+	background: #ffffff;
+	border: 1px solid #b1b1b1;
+	border-top:0;
+	overflow: hidden;
+	position:absolute;
+	top:115px;
+	left:130px;
+	width:600px;
+	z-index: 1000;
+	display: none;
+	height:400px;
+}
+.jnNav .subitem{
+	float: left;
+	height:auto !important;
+	min-height: 100px;
+	padding:10px 12px;
+	width:580px;
+}
+.jnNav .subitem dl{
+	border-top:1px dashed #c4c4c4;
+	overflow: hidden;
+	padding:8px 0;
+	float: left;
+}
+.jnNav .subitem dt{
+	float: left;
+	font-weight: bold;
+	line-height: 16px;
+	margin-top:10px;
+	width: 76px;
+	height:16px;
+}
+.jnNav .subitem dd{
+	float: left;
+	text-align: left;
+	overflow: hidden;
+	width:480px;
+}
+#jnimageroll a.chos{
+	background: #37a7d7;
+	color:#ffffff;
+}
+</style>
+<body>
+<div id="header">
+	<div class="conWidth">
+		<a href="#logo" class="logo">
+			<img src="images/logo.png" />
+		</a>
+		<div class="search">
+			<input type="text" name="search" placeholder="请输入商品名称" class="ssearch"/>
+			<input type="submit" value="搜索" class="subsea"/>
+		</div>
+		<ul id="skin">
+			<li><a href="#">登录</a></li>
+			<li><a href="#">注册</a></li>
+			<li><a href="#">联系我们</a></li>
+		</ul>
+	</div>
+</div>
+<div class="mainnav" id="nav">
+			<ul>
+			<li class="navc"><a href="#">首页</a></li>
+			<li><a href="#">推荐品牌</a>
+			<div class="jnNav">
+				<div class="subitem">
+					<dl>
+						<dt>品牌:</dt>
+						<dd>耐克 | 阿迪达斯 | 达芙妮 | 李宁 | 安踏 | 奥康 | 骆驼 | 特步 | 阿迪达斯 | 达芙妮 | 李宁 | 安踏</dd>
+					</dl>
+				</div>
+			</div>
+			</li>
+			<li><a href="#">女装</a>
+			<div class="jnNav">
+				<div class="subitem">
+					<dl>
+						<dt>女装:</dt>
+						<dd>连衣裙 | T恤 | 短裤 | 衬衫 | 蓬蓬裙 | 高跟鞋 | 布鞋 | 皮衣 | T恤 | 短裤 | 衬衫| 安踏</dd>
+					</dl>
+				</div>
+			</div>
+			</li>
+			<li><a href="#">男装</a>
+			<div class="jnNav">
+				<div class="subitem">
+					<dl>
+						<dt>男装:</dt>
+						<dd>连衣裙 | T恤 | 短裤 | 衬衫 | 蓬蓬裙 | 高跟鞋 | 布鞋 | 皮衣 | T恤 | 短裤 | 衬衫| 安踏</dd>
+					</dl>
+				</div>
+			</div>
+			</li>
+			<li><a href="#">鞋包配饰</a>
+			<div class="jnNav">
+				<div class="subitem">
+					<dl>
+						<dt>鞋包配饰:</dt>
+						<dd>连衣裙 | T恤 | 短裤 | 衬衫 | 蓬蓬裙 | 高跟鞋 | 布鞋 | 皮衣 | T恤 | 短裤 | 衬衫| 安踏</dd>
+					</dl>
+				</div>
+			</div>
+			</li>
+			</ul>
+</div>
+<div id="jncatalog">
+	<h2 title="商品分类">商品分类</h2>
+	<div class="jncatainfo">
+		<h3>推荐品牌</h3>
+		<ul>
+		<li><a href="#">耐克</a></li>
+		<li><a href="#" class="promoted">阿迪达斯</a></li>
+		<li><a href="#">达芙妮</a></li>
+		<li><a href="#">李宁</a></li>
+		<li><a href="#">安踏</a></li>
+		<li><a href="#">奥康</a></li>
+		<li><a href="#" class="promoted">骆驼</a></li>
+		<li><a href="#">特步</a></li>
+		</ul>
+		<br class="clear" />
+	</div>
+	<div class="jncatainfo">
+		<h3>女装</h3>
+		<ul>
+		<li><a href="#">大衣</a></li>
+		<li><a href="#">T恤</a></li>
+		<li><a href="#">羽绒</a></li>
+		<li><a href="#">衬衫</a></li>
+		<li><a href="#">羊绒衫</a></li>
+		<li><a href="#">针织</a></li>
+		<li><a href="#">连衣裙</a></li>
+		<li><a href="#">皮外套</a></li>
+		</ul>
+		<br class="clear" />
+	</div>
+	<div class="jncatainfo">
+		<h3>男装</h3>
+		<ul>
+		<li><a href="#">大衣</a></li>
+		<li><a href="#">T恤</a></li>
+		<li><a href="#">羽绒</a></li>
+		<li><a href="#">衬衫</a></li>
+		<li><a href="#">羊绒衫</a></li>
+		<li><a href="#">针织</a></li>
+		<li><a href="#">连衣裙</a></li>
+		<li><a href="#">皮外套</a></li>
+		</ul>
+		<br class="clear" />
+	</div>
+	<div class="jncatainfo">
+		<h3>鞋包配饰</h3>
+		<ul>
+		<li><a href="#">围巾</a></li>
+		<li><a href="#" class="promoted">旅行箱</a></li>
+		<li><a href="#">真皮包</a></li>
+		<li><a href="#">韩版</a></li>
+		<li><a href="#">达芙妮</a></li>
+		<li><a href="#">单肩包</a></li>
+		<li><a href="#" class="promoted">毛线</a></li>
+		<li><a href="#">清仓靴子</a></li>
+		</ul>
+		<br class="clear" />
+	</div>
+</div>
+<div id="jnimageroll">
+	<a href="#" id="js_img">
+	<img src="images/img1.jpg" />
+	<img src="images/img2.jpg" />
+	<img src="images/img3.jpg" />
+	<img src="images/img4.jpg" />
+	<img src="images/img7.jpg" />
+	<img src="images/img8.jpg" />
+	</a>
+	<div>
+	<a href="#"><em>相约情人节</em><em>全场119元</em></a>
+	<a href="#"><em>酷炫跑鞋</em><em>全场8折起</em></a>
+	<a href="#"><em>贝壳头系列</em><em>全场219元</em></a>
+	<a href="#"><em>运动休闲</em><em>全场5折起</em></a>
+	<a href="#"><em>舒适篮球鞋</em><em>全场319元</em></a>
+	<a href="#" class="chos"><em>运动外套</em><em>全场119元</em></a>
+	</div>
+</div>
+<div id="jnnotice">
+	<div id="jnmiaosha">
+		<a href="#" class="js_css"><img src="images/img6.jpg" /></a>
+	</div>
+	<div id="jnnoticeinfo">
+		<h3 title="最新动态">最新动态</h3>
+		<ul>
+		<li><a href="#">[活动] 伊伴春鞋迎春大促</a></li>
+		<li><a href="#">[活动] 伊伴春鞋迎春大促</a></li>
+		<li><a href="#">[活动] 伊伴春鞋迎春大促</a></li>
+		<li><a href="#">[活动] 伊伴春鞋迎春大促</a></li>
+		<li><a href="#">[活动] 伊伴春鞋迎春大促</a></li>
+		</ul>
+	</div>
+</div>
+<div id="jnbrand">
+	<div id="jnbrandtab">
+		<h3 title="品牌活动">品牌活动</h3>
+		<ul>
+		<li class="tab"><a href="#">运动</a></li>
+		<li><a href="#">女鞋</a></li>
+		<li><a href="#">男鞋</a></li>
+		<li><a href="#">童鞋</a></li>
+		</ul>
+	</div>
+	<div id="jnbrandcontent">
+		<div id="jnbrandlist">
+			<ul>
+			<li><a href="#"><img src="images/shoe1.jpg" /></a><span><a href="#">耐克</a></span></li>
+			<li><a href="#"><img src="images/shoe2.jpg" /></a><span><a href="#">阿迪达斯</a></span></li>
+			<li><a href="#"><img src="images/shoe3.jpg" /></a><span><a href="#">李宁</a></span></li>
+			<li><a href="#"><img src="images/shoe4.jpg" /></a><span><a href="#">安踏</a></span></li>
+			</ul>
+		</div>
+	</div>
+</div>
+</body>
+</html>
+<script>
+$(function(){
+	$('#nav ul li').hover(function(){
+		$(this).addClass('navc').siblings().removeClass('navc');
+		$(this).find('a').css({color:"#fff"});
+
+	})
+	$('#jnbrandtab ul li').hover(function(){
+		$(this).addClass('tab').siblings().removeClass('tab');
+		$(this).find('a').css({color:"#000"});
+		var index=$('#jnbrandtab li a').index(this);
+		showBrandList(index);
+		return false;
+	})
+	$('#nav li').hover(function(){
+		$(this).find(".jnNav").show();
+	},function(){
+		$(this).find(".jnNav").hide();
+	})
+	var index=0;
+	$('#jnimageroll div a').css('opacity','0.7');
+	var len=$('#jnimageroll div a').length;
+	var adTimer=null;
+	$('#jnimageroll div a').mouseover(function(){
+		index=$('#jnimageroll div a').index(this);
+		showImg(index);
+	}).eq(0).mouseover();
+	$('#jnimageroll').hover(function(){
+		if(adTimer){
+			clearInterval(adTimer);
+		}
+	},function(){
+		adTimer=setInterval(function(){
+			showImg(index);
+			index++;
+			if(index==len){
+				index=0;
+			}
+		},3000);
+	}).trigger('mouseleave');
+	function showImg(index){
+		var $rollobj=$('#jnimageroll');
+		var $rolllist=$rollobj.find("div a");
+		var newhref=$rolllist.eq(index).attr("href");
+		$('#js_img').attr("href",newhref).find('img').eq(index).stop(true,true).fadeIn().siblings().fadeOut();
+		$rolllist.removeClass('chos').css("opacity","0.7").eq(index).addClass("chos").css("opacity","1");
+	}
+	function showBrandList(index){
+		var $rollobj =$('#jnbrandlist');
+		var rollwidth=$rollobj.find('li').outerWidth();
+		rollwidth=rollwidth*4;
+		$rollobj.stop(true,false).animate({left:-rollwidth*index},1000);
+	}
+})
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h3>visited</h3>
+<ul class="visited"></ul>
+<h3>not visited</h3>
+<ul class="notvisited"></ul>
+</body>
+</html>
+<script>
+	var websites=["http://www.baidu.com/",
+                  "http://www.google.com/",
+                  "http://www.sina.com.cn/",
+                  "http://www.qq.com/",
+                  "http://www.163.com/",
+                  "http://www.sohu.com/",
+                  "http://www.playsec.com/",
+                  "http://www.taobao.com/",
+	             ];
+	for(var i=0;i<websites.length;i++){
+		var link=document.createElement("a");
+		link.id="id"+i;
+		link.href=websites[i];
+		link.innerHtml=websites[i];
+		document.write('<style>');
+		document.write('#id'+i+":visited{color:#ff0000;}");
+		document.write('</style>');
+		document.body.appendChild(link);
+		var color=document.defaultView.getComputedStyle(link,null).getPropertyValue("color");
+		document.body.removeChild(link);
+		if(color=="rgb(255,0,0)"){
+			var itme=document.createElement('li');
+			itme.appendChild(link);
+			document.getElementById('visited').appendChild(itme);
+		}else{
+			var itme=document.createElement('li');
+			itme.appendChild(link);
+			document.getElementById('notvisited').appendChild(itme);
+		}
+	}
+</script>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>微信聊天</title>
+	<script src="script/jquery-3.1.1.min.js" type="text/javascript"></script>
+</head>
+<style>
+*{
+	padding:0px;
+	margin:0px;
+}
+body{
+	background-image: url("images/bg2.jpg") ;
+	width:1366px;
+}
+.main{
+	width:90%;
+	margin:10px auto;
+}
+.box{
+	float: left;
+	margin:20px 120px;
+}
+.top{
+	width:310px;
+	padding:10px 20px;
+	background-color: beige;
+	font-size:18px;
+	color:aqua;
+	font-weight: bold;
+}
+.content{
+	background-color: white;
+}
+select{
+	border:2px solid #ccc;
+	background-color: white;
+	width:350px;
+	height:470px;
+	padding:10px;
+}
+.send{
+	width:310px;
+	background-color: cadetblue;
+	padding:5px 20px;
+}
+.sendtext{
+	height:25px;
+	width:220px;
+	font-size: 15px;
+}
+.sendbtn{
+	width:65px;
+	height: 30px;
+	float: right;
+	font-size:18px;
+	background-color: gold;
+}
+option{
+	font-size: 15px;
+	height:auto;
+	padding: 10px;
+	margin:10px;
+	background-color: aquamarine;
+	margin-left: 158px;
+	margin-top: 10px;
+	max-width: 310px;
+	margin-bottom: 10px;
+
+}
+</style>
+<body>
+<div class="main">
+	<div class="box">
+		<div class="chat">
+			<div class="top">
+				<span>A君</span>
+			</div>
+			
+			<div class="content">
+				<select multiple="multiple" id="leftcontent"></select>
+			</div>
+
+			<div class="send">
+				<input type="text" id="lefttext" class="sendtext">
+				<input type="button" id="leftbtn" class="sendbtn" value="发送">
+			</div>
+		</div>
+	</div>
+	
+	<div class="box">
+		<div class="chat">
+			<div class="top">
+				<span>B君</span>
+			</div>
+			
+			<div class="content">
+				<select multiple="multiple" id="rightcontent"></select>
+			</div>
+
+			<div class="send">
+				<input type="text" id="righttext" class="sendtext">
+				<input type="button" id="rightbtn" class="sendbtn" value="发送">
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+	//给按钮绑定事件
+	$(function(){
+		//点击a君发送按钮
+	$('#leftbtn').bind('click',sendmsgleft);
+	 function sendmsgleft(){
+	 	var txt=$('#lefttext').val();
+	 	var option=$("<option></option>");
+	 	var len=txt.length;
+	 	option.css('width',len*15+"px");
+	 	option.css('marginLeft',350-len*15-60+"px");
+	 	option.html(txt);
+	 	$('#leftcontent').append(option);
+	 	var option1=$("<option></option>");
+	 	option1.css('width',len*15+"px");
+	 	option1.css('marginLeft',"10px");
+	 	option1.html(txt);
+	 	$('#rightcontent').append(option1);
+	 	$("#lefttext").val("");
+	 }
+
+	 $('#rightbtn').bind('click',sendmsgright);
+	 function sendmsgright(){
+	 	var txt=$('#righttext').val();
+	 	var option=$("<option></option>");
+	 	var len=txt.length;
+	 	option.css('width',len*15+"px");
+	 	option.css('marginLeft',350-len*15-60+"px");
+	 	option.html(txt);
+	 	$('#rightcontent').append(option);
+	 	var option1=$("<option></option>");
+	 	option1.css('width',len*15+"px");
+	 	option1.css('marginLeft',"5px");
+	 	option1.html(txt);
+	 	$('#leftcontent').append(option1);
+	 	$("#righttext").val("");
+	 }
+	 document.onkeydown=function(){
+			if(event.keyCode==13){
+				var text1=$('#lefttext').val();
+				var text2=$('#righttext').val();
+				if(text1.trim()!="" && text2.trim()==""){
+					sendmsgleft();
+				}else{
+					sendmsgright();
+				}
+			}
+		}
+
+
+
+
+		//点击b君发送按钮
+	})
+</script>

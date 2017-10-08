@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>换肤</title>
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.cookie.js"></script>
+	<link href="font-awesome-4.7.0/css1/font-awesome.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="font-awesome-4.7.0/css1/font-awesome.min.css" ></link>
+</head>
+<style>
+ul li{
+	list-style: none;
+	width:40px;
+	height: 40px;
+	margin-left:15px;
+	float: left;
+	margin-top:10px;
+}
+#gray{
+	background:gray;
+}
+#purple{
+	background:purple;
+}
+#red{
+	background:red;
+}
+#blue{
+	background:blue;
+}
+#orange{
+	background:orange;
+}
+#green{
+	background:green;
+}
+.skin{
+	width:500px;
+	height:60px;
+	border:1px solid #000;
+	background:#fff;
+}
+.div_side_0 .news{
+	width:150px;
+	height:45px;
+	background:#000;
+	color:#fff;
+	text-align: center;
+	line-height:45px;
+}
+.div_side_1 .game{
+	width:150px;
+	height:45px;
+	background:#000;
+	color:#fff;
+	text-align: center;
+	line-height:45px;
+}
+.skin li span{
+	margin-left:5px;
+	line-height: 45px;
+	color:#fff;
+	display:none;
+}
+.selected span{
+	display:block!important;
+
+}
+</style>
+<body>
+<ul class="skin">
+	<li id="gray" title="black" class="selected"><span><i class="fa fa-check fa-2x"></i></span></li>
+	<li id="purple" title="purple" ><span><i class="fa fa-check fa-2x"></i></span></li>
+	<li id="red" title="red" ><span><i class="fa fa-check fa-2x"></i></span></li>
+	<li id="blue" title="blue" ><span><i class="fa fa-check fa-2x"></i></span></li>
+	<li id="orange" title="orange" ><span><i class="fa fa-check fa-2x"></i></span></li>
+	<li id="green" title="green" ><span><i class="fa fa-check fa-2x"></i></span></li>
+</ul>
+<div class="div_side_0">
+	<div class="news">
+		<h1 class="title">时事新闻</h1>
+	</div>
+</div>
+<div class="div_side_1">
+	<div class="game">
+		<h1 class="title">娱乐新闻</h1>
+	</div>
+</div>
+</body>
+</html>
+<script>
+$(function(){
+	$('.skin li').click(function(){
+		var color=this.title;
+		$('#'+this.id).addClass('selected').siblings().removeClass('selected');
+		$('body').css({'background':color});
+		$.cookie('myskin',this.title,{path: '/',expires:10});
+	})
+	var skin=$.cookie('myskin');
+	if(skin){
+		$('#'+skin).addClass('selected').siblings().removeClass('selected');
+		$('body').css({'background':skin});
+		$.cookie('myskin',skin,{path: '/',expires:10});
+	}
+})
+</script>

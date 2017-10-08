@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+	<script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
+</head>
+<style>
+ul li img{
+	width:150px;
+	height:150px;
+}
+ul li{
+	list-style: none;
+	float:left;
+	margin-left:125px;
+}
+#tooltip img{
+	width:500px;
+	height:350px;
+	position:absolute;
+	margin-left:-600px;
+	margin-top:300px;
+}
+#tooltip{
+
+}
+</style>
+<body>
+<ul>
+     <li><a href="image/back.jpg" class="tooltip" title="暖秋"><img src="image/back.jpg" alt="暖秋"></a></li>
+     <li><a href="image/bg1.jpg" class="tooltip" title="小清新"><img src="image/bg1.jpg" alt="小清新"></a></li>
+     <li><a href="image/bg2.jpg" class="tooltip" title="绿意"><img src="image/bg2.jpg" alt="绿意"></a></li>
+     <li><a href="image/bg3.jpg" class="tooltip" title="寂寥"><img src="image/bg3.jpg" alt="寂寥"></a></li>
+</ul>
+</body>
+</html>
+<script>
+$(function(){
+	$('a.tooltip').mouseover(function(e){
+		this.Mytitle=this.title;
+		this.title="";
+		var imgtitle=this.Mytitle?"<br/>"+this.Mytitle:"";
+		var tooltip="<div id='tooltip'><img src='"+this.href+"' alt='产品预览图'/>"+imgtitle+"</div>";
+		$('body').append(tooltip);
+		$('#tooltip').css({'top':(e.pageY+y)+'px','left':(e.pageX+x)+'px'}).show("fast");
+	})
+	$('a.tooltip').mouseout(function(){
+        this.title=this.Mytitle;
+        $('#tooltip').remove();
+	})
+	$('a.tooltip').mousemove(function(e){
+        $("#tooltip").css({'top':(e.pageY+y)+'px','left':(e.pageX+x)+'px'})
+	})
+})
+</script>

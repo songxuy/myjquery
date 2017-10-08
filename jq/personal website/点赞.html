@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>点赞</title>
+	<script src="script/jquery-3.1.1.min.js" type="text/javascript"></script>
+</head>
+<style>
+.btn{
+	width: 200px;
+	height:30px;
+	background-color: bisque;
+	color:#fff;
+	position: absolute;
+	left:45%;
+	bottom:100px;
+}
+img{
+	width:20px;
+	height:20px;
+	position: absolute;
+	bottom:100px;
+	left:45%;
+	margin-left:-10px;
+}
+</style>
+<body>
+<div class="demo">
+</div>
+<input type="button" id="btn1" class="btn" value="赞赞赞赞赞">
+</body>
+</html>
+<script type="text/javascript">
+	$(function(){
+		//1 找到按钮添加点击事件
+		$('#btn1').click(function(){
+
+
+
+		//2 生成彩色的心 难点：生成不同颜色的心
+		var num1=Math.floor(Math.random()*3+1);
+		var num2=Math.floor(Math.random()*3+1);
+		var num3=Math.floor(Math.random()*3+1);
+		var index=$('.demo').children("img").length;
+
+		$('.demo').append('<img src="" class="p1"/><img src="" class="p2"/><img src="" class="p3"/>');
+		$("img:eq("+index+")").attr("src","images/"+num2+".png");
+		$("img:eq("+(index+1)+")").attr("src","images/"+num1+".png");
+		$("img:eq("+(index+2)+")").attr("src","images/"+num3+".png");
+
+		//3 把生成好的图片添加到页面上
+
+
+
+		//4 彩色的心动起来 难点：不是直线上升
+		var rand1=Math.floor(Math.random()*1349);
+		var rand2=Math.floor(Math.random()*1349);
+		var rand3=Math.floor(Math.random()*1349);
+		$('.p1').animate({
+			bottom:'800px',
+			opacity:"0",
+			left:rand1
+		},3000,function(){
+			$(this).remove();
+		})
+		$('.p2').animate({
+			bottom:'800px',
+			opacity:"0",
+			left:rand2
+		},3000,function(){
+			$(this).remove();
+		})
+		$('.p3').animate({
+			bottom:'800px',
+			opacity:"0",
+			left:rand3
+		},3000,function(){
+			$(this).remove();
+		})
+		})
+	})
+
+</script>

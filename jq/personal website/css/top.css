@@ -1,0 +1,314 @@
+body,div,ul,li{
+	padding:0px;
+	margin:0px;
+}
+*{
+	font-size: 12px;
+	font-height:24px;
+	font-family: "微软雅黑";
+	color:#3c3c3c;
+}
+ul{
+	list-style: none;
+}
+header{
+	width:100%;
+	border-bottom:2px solid #00afc7;
+}
+.header_center{
+	width:1200px;
+	margin:0 auto;
+	overflow: hidden;
+}
+.header_logo{
+	float:left;
+	margin-top:20px;
+}
+.header_nav{
+	float: right;
+}
+.person_nav{
+	float:right;
+	padding:5px 0 0px 0;
+}
+.person_nav li{
+	float: left;
+	padding:0 10px;
+	line-height: 12px;
+	color:#000000;
+	border-right:solid 1px #ddd;
+}
+.html_nav{
+	clear: both;/*清除浮动*/
+	float: right;
+	overflow: hidden;
+}
+.html_nav li{
+	float: left;
+	padding:17px 10px 0 10px;
+	margin-top:10px;
+	line-height: 28px;
+}
+.html_nav .img{
+	margin-top:10px;
+	padding:0px;
+}
+.html_nav li a{
+	font-size:16px;
+	line-height: 28px;
+	font-weight: :bold;
+	text-decoration: none;
+}
+.html_nav li a:hover{
+	color:#0088a4;
+}
+/*最左侧*/
+.account_nav-ad{
+	position: fixed;
+	top:0px;
+	left:0px;
+	z-index: 2;
+}
+.account_nav-ad1{
+	position: fixed;
+	top:550px;
+	left:0px;
+	z-index: 2;
+	display: none;
+
+}
+.account_nav-ad1:hover{
+	cursor: pointer;
+}
+.account_nav{
+	position: fixed;
+	top:0px;
+	left:0px;
+	height:100%;
+	width:34px;
+	background: #4c6dd6;
+}
+.account_nav_vip{
+	padding:30px 0;
+	width:24px;
+	margin:auto;
+	margin-top:100px;
+}
+.account_nav_center li,.account_nav_otheer li{
+	text-align: center;
+	margin-top:10px;
+}
+.account_nav_center li span,.account_nav_otheer li span{
+	padding:4px 0;
+	margin: 4px 0;
+	line-height: 20px;
+	color:#fff;
+	font-family: "宋体";
+}
+.account_nav_otheer{
+	border: 0;
+	margin-top:50px;
+}
+.account_nav_vip li:hover,.account_nav_center li span:hover,.account_nav_otheer li span:hover{
+	cursor: pointer;
+}
+/*特惠推荐*/
+.content-center{
+	width:1000px;
+	margin-left:75px;
+}
+.recommend{
+	margin-top:25px;
+	overflow: hidden;
+}
+.recommend_left{
+	float:left;
+}
+.recommend_nav{
+	border-bottom:2px solid #00afc7;
+	height:39px;
+	width:950px;
+	background-color: #fff;
+	overflow:hidden;
+}
+.recommend_nav li{
+	float: left;
+	padding:0 13px;
+	line-height: 33px;
+	font-size:16px;
+	color:#00afc7;
+
+}
+.recommend_nav .active{
+	color:#fff;
+	background-color: #00afc7;
+}
+.recommend_nav li:hover{
+	cursor: pointer;
+	color:#fff;
+	background-color: #00afc7;
+}
+/*重庆到宜昌*/
+.recommend_content1,.recommend_content2,.recommend_content3{
+	position: absolute;
+}
+.recommend_content2,.recommend_content3{
+	display: none;
+}
+.recommend_journey{
+	float:left;
+	border:1px solid #eee;
+	width:240px;
+	height: 250px;
+	margin-right: 15px;
+	margin-top:16px;
+	/*overflow: hidden;*/
+}
+.recommend_journey:hover{
+	border:1px solid #00afc7;
+}
+.top_journey{
+	clear: both;
+	float: left;
+	width:430px;
+}
+.recommend_journey_pic{
+	width:246px;
+	height:248px;
+}
+.recommend_journey_pic1{
+	width:240px;
+	height:144px;
+}
+.recommend_journey_info{
+	float:right;
+	margin-top:-10px;
+	width:184px;
+	height:238px;
+}
+.top_journey .recommend_journey_info h1{
+	line-height: 28px;
+	font-size:20px;
+	font-weight:bold;
+	color:#fff;
+	width:100%;
+	background-color: #00afc7;
+	text-align: center;
+    padding:10px 0;
+
+}
+.top_journey .recommend_journey_info{
+	margin-top:-270px;
+}
+.top_journey .recommend_journey_info p{
+	line-height: 26px;
+	color:#555;
+	margin-top:0px;
+	padding:0 10px;
+	font-size:16px;
+}
+.top_journey .recommend_journey_price21{
+	position: relative;
+	margin-left:5px;
+	margin-top: 107px;
+}
+.top_journey .recommend_journey_price11{
+	position: relative;
+	margin-left:5px;
+	margin-top: 135px;
+}
+.top_journey .recommend_journey_price12{
+	position: relative;
+	margin-left:5px;
+	margin-top: 110px;
+}
+.top_journey .recommend_journey_price13{
+	position: relative;
+	margin-left:5px;
+	margin-top: 83px;
+}
+.top_journey .recommend_journey_price21 span,.top_journey .recommend_journey_price11 span,.top_journey .recommend_journey_price12 span,.top_journey .recommend_journey_price13 span{
+	line-height: 28px;
+	display: inline-block;
+	color:red;
+	font-size:20px;
+	font-weight:bold;
+	text-align: left;
+}
+.recommend_journey_info1 h1{
+	font-size: 16px;
+	font-weight: bold;
+	margin-left:10px;
+
+}
+.recommend_journey_info1 p{
+	margin-left:10px;
+	color:#999;
+}
+.recommend_journey_price1 span{
+	line-height: 28px;
+	display: inline-block;
+	color:red;
+	font-size:20px;
+	font-weight:bold;
+	text-align: left;
+	margin-left:5px;
+}
+.recommend_left .more{
+	float:right;
+	margin-top:-30px;
+}
+.recommend_left .more a{
+	text-decoration: none;
+}
+/*选项卡*/
+.search_nav{
+	width:710px;
+	height: 330px;
+	background-color: #00afc7;
+	margin-top:20px;
+}
+.search_nav ul{
+	padding:8px 12px 8.5px 11px;
+}
+.search_nav li{
+	width: 72px;
+	height: 39px;
+	text-align: center;
+	font-size: 16px;
+	color:#fff;
+	line-height: 39px
+}
+.search_nav .search_nav_active{
+	background-color: #fff;
+	color:#00afc7;
+} 
+.search_nav li:hover{
+	background-color: #fff;
+	color:#00afc7;
+	cursor: pointer;
+
+}
+.content_left{
+	float: right;
+	margin-right: 60px;
+	width:250px;
+}
+.p2{
+	margin-top:-20px;
+}
+.left_img img{
+	position: absolute;
+	right:60px;
+	top:105px;
+}
+.search_nav_right{
+	width:615px;
+ 	background-color: #fff;
+ 	height:312px;
+ 	float: right;
+ 	margin-top:-321px;
+ 	margin-left:-10px;
+ 	margin-right: 12px;
+}
+

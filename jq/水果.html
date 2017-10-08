@@ -1,0 +1,51 @@
+<html>
+<head>
+	<script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
+</head>
+<style>
+.menu ul li{
+	list-style: none;
+	margin-top:10px;
+}
+.menu ul li:hover{
+	cursor:pointer;
+}
+.me  li{
+	list-style: none;
+	margin-top:10px;
+}
+.me  li:hover{
+	cursor:pointer;
+}
+
+</style>
+<body>
+<span>你喜欢吃哪些水果</span>
+<div class="menu">
+<ul>
+	<li>香蕉</li>
+	<li>苹果</li>
+	<li>梨</li>
+	<li>哈密瓜</li>
+	<li>西瓜</li>
+	<li>火龙果</li>
+	<li>水蜜桃</li>
+	<li>甘蔗</li>
+	<li>橘子</li>
+	<li>樱桃</li>
+	<li>草莓</li>
+	<li>小西红柿</li>
+</ul>
+</div>
+<hr>
+<div class="me">
+</div>
+</body>
+</html>
+<script>
+$(function(){
+	$('.menu ul li').click(function(){
+		$(this).appendTo('.me');
+	})
+})
+</script>

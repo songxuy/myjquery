@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+	<script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
+</head>
+<style>
+table{
+	text-align: center;
+	border:0px;
+	 margin:auto; 
+	 border-collapse:collapse; 
+
+}
+thead tr{
+height:40px;
+}
+tr{
+	height:20px;
+}
+td{
+line-height:40px;
+width:120px;
+height:40px;
+margin-top:30px;
+border:0px;
+}
+.even{
+	background:#fff38f;
+}
+.odd{
+	background:#ffffee;
+}
+.th{
+	width:370px;
+	height:30px; 
+	margin-left:490px;
+	margin-top:10px;
+	position:absolute;
+	border-bottom:2px solid #ccc;
+}
+.selected{
+	background:#000;
+	color:#fff;
+}
+</style>
+<body>
+<table>
+<thead>
+<tr><th>姓名</th><th>性别</th><th>暂住地</th></tr>
+</thead>
+<div class="th"></div>
+<tbody>
+	<tr><td><input type="radio" name="zs"></td><td>张三</td><td>男</td><td>四川成都</td></tr>
+	<tr><td><input type="radio" name="zs"></td><td>张三</td><td>男</td><td>四川成都</td></tr>
+	<tr><td><input type="radio" name="zs"></td><td>张三</td><td>男</td><td>四川成都</td></tr>
+	<tr><td><input type="radio" name="zs"></td><td>张三</td><td>男</td><td>四川成都</td></tr>
+	<tr><td><input type="radio" name="zs"></td><td>张三</td><td>男</td><td>四川成都</td></tr>
+	<tr><td><input type="radio" name="zs"></td><td>张三</td><td>男</td><td>四川成都</td></tr>
+</tbody>
+</table>
+</body>
+</html>
+<script>
+$(function(){
+   $('tbody>tr:odd').addClass('odd');
+   $('tbody>tr:even').addClass('even');
+   $('tbody>tr').click(function(){
+   	$(this).addClass('selected').siblings().removeClass('selected');
+   	$(this).find(':radio').attr('checked',true);
+   	$(this).siblings().find(':radio').attr('checked',false);
+   })
+})
+</script>

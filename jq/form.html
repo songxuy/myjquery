@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.form.js"></script>
+</head>
+<style>
+</style>
+<body>
+<form id="myForm" action="demo.php" method="post">
+名称:<input type="text" name="name" /><br/>
+地址:<input type="text" name="address" /><br/>
+自我介绍:<textarea name="comment"></textarea><br/>
+<input type="submit" id="text" value="提交" /><br/>
+<div id="output1" style="display: none;"></div>
+</form>
+</body>
+</html>
+<script type="text/javascript">
+	$(function(){
+		$('#myForm').ajaxForm(function(){
+			$('#output1').html("提交成功!欢迎下次再来").show();
+		})
+	})
+</script>

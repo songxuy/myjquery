@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+	<script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
+</head>
+<style>
+*{
+	padding:0px;
+	margin:0px;
+}
+.v_con .v_con_list ul li img{
+	width:250px;
+	height:200px;
+	float:left;
+}
+a{
+	text-decoration: none;
+}
+.v_con .v_con_list ul li{
+	float: left;
+	margin-left:70px;
+	list-style: none;
+	margin-top:75px;
+		display:inline;
+}
+.v_con{
+	overflow: hidden;;
+	position: :relative;
+}
+.v_con .v_con_list ul{
+width:2000px;
+}
+.v_caption{
+	width:100%;
+	height:50px;
+	background:#eee;
+	position: absolute;
+}
+.v_caption h2{
+	margin-left:15px;
+	margin-top:10px;
+	position:absolute;
+}
+.change_btn{
+margin-left:275px;
+line-height:50px;
+
+}
+.hightl_tip{
+	width:300px;
+	margin-left:150px;
+	line-height:50px;
+}
+.hightl_tip .cu{
+	width:15px;
+	height:15px;
+	margin-left:12px;
+	background:#fff;
+	float: left;
+	margin-top:18px;
+
+	border-radius: 50%;
+
+}
+.hightl_tip .bg{
+	background: #000;
+}
+.hightl_tip .cu span{
+	margin-left:15px;
+}
+.v_caption em{
+	float:right;
+	margin-right:10px;
+	margin-top: -30px;
+	
+
+}
+</style>
+<body>
+<div class="v_show">
+<div class="v_caption">
+<h2 class="catoon" title="卡通动漫">卡通动漫</h2>
+<div class="hightl_tip">
+<div class="cu bg"></div><div class="cu"></div><div class="cu"></div><div class="cu"></div>
+</div>
+<div class="change_btn">
+<span class="pre">上一页</span>
+<span class="next">下一页</span>
+</div>
+<em><a href="#">更多>></a></em>
+</div>
+<div class="v_con">
+<div class="v_con_list">
+<ul>
+<li><a href="#"><img src="image/bg1.jpg" alt="海贼王"/></a><h4><a href="#">海贼王</a></h4><span>播放:<em>28,267</em></span></li>
+<li><a href="#"><img src="image/bg2.jpg" alt="海贼王"/></a><h4><a href="#">火影</a></h4><span>播放:<em>28,267</em></span></li>
+<li><a href="#"><img src="image/bg3.jpg" alt="海贼王"/></a><h4><a href="#">柯南</a></h4><span>播放:<em>28,267</em></span></li>
+<li><a href="#"><img src="image/back.jpg" alt="海贼王"/></a><h4><a href="#">海贼王</a></h4><span>播放:<em>28,267</em></span></li>
+<li><a href="#"><img src="image/1435677159046.jpg" alt="海贼王"/></a><h4><a href="#">巨人</a></h4><span>播放:<em>28,267</em></span></li>
+<li><a href="#"><img src="image/18257494dd0d83d0.jpg" alt="海贼王"/></a><h4><a href="#">巨人</a></h4><span>播放:<em>28,267</em></span></li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>
+<script>
+$(function(){
+	var page=1;
+	var i=4;
+	$('span.next').click(function(){
+		var $par=$(this).parents('div.v_show')
+		var $v_show=$par.find('div.v_con_list');
+		var $v_con=$par.find('div.v_con');
+		var v_width=$v_con.width();
+		var len=$v_show.find('li').length;
+		var page_count=Math.ceil(len/i);
+		if(!$v_show.is(":animated")){
+			if(page==page_count){
+				$v_show.animate({left:'0px'},"slow");
+				page=1;
+			}else{
+				$v_show.animate({left:'10px'},"slow");
+				page++;
+			}
+			$('.cu').eq((page-1)).addClass('bg').siblings().removeClass('bg');
+		}
+	})
+})
+</script>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+	<script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
+</head>
+<style>
+#div1{
+	position:absolute;
+	top:0px;
+	left:0px;
+	border-radius: 256px;
+	width:100px;
+	height:80px;
+	background: #ccc;
+	overflow: hidden;
+}
+</style>
+<body>
+<div id="div1">
+<img src="image/1.gif">
+</div>
+</body>
+</html>
+<script>
+$(document).mousedown(function(event){
+	code=event.button;
+	alert(code)//左右键和滚轮
+})
+/*function drag(obj){
+	obj.bind("mousedown",start);
+	function start(event){
+		deltaX=event.clientX-obj.offset().left;
+		deltaY=event.clientY-obj.offset().top;
+		$(document).bind("mousemove",move);
+		$(document).bind("mouseup",stop);
+		return false;
+	}
+	function move(event){
+		obj.css({'left':(event.clientX-deltaX)+'px','top':(event.clientY-deltaY)+'px'})
+		return false;
+	}
+	function stop(){
+		$(document).unbind("mousemove",move);
+		$(document).unbind("mouseup",stop);
+	}
+}
+var obj=$("#div1");
+drag(obj);*/
+</script>

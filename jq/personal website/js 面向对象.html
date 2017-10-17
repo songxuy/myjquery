@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>js 面向对象</title>
+	<script src="script/jquery-3.1.1.min.js" type="text/javascript"></script>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+	$(function(){
+		/*var obj=new Object();
+		obj.name="喵星人";
+		obj.age=2;
+		obj.sayhi=function(){
+			alert(this.name+this.age+"说，做喵不傲娇和狗有什么区别");
+		}
+		obj.sayhi();*/
+		//工厂模式 批量对象实例化
+		/*function createobj(name,age){
+			var obj=new Object();
+			obj.name=name;
+			obj.age=age;
+			obj.sayhi=function(){
+				alert(this.name+this.age+"说，做喵不傲娇和狗有什么区别");
+			}
+			return obj;
+		}
+		var c1=createobj('a-1',1);
+		var c2=createobj('a-2',2);
+		c1.sayhi();
+		c2.sayhi();*/
+
+
+		//通过构造函数 改变类型为Cat型
+		/*function Cat(name,age){
+			this.name=name;
+			this.age=age;
+			this.sayhi=function(){
+				alert(this.name+this.age+"说，做喵不傲娇和狗有什么区别");
+			}
+		}
+		var cat1=new Cat('a',1);
+		var cat2=new Cat('b',2);
+		cat1.sayhi();//不是同一个地址
+		cat2.sayhi();*/
+		//构造函数 和工厂模式有什么区别
+		//1.有无new Object 但是后台做了 2.构造函数没有return 自动返回 规范：第一个字母大写
+
+		//通过原型
+		/*function Cat(){
+		}
+		Cat.prototype.name="a";
+		Cat.prototype.age=1;
+		Cat.prototype.sayhi=function(){
+			alert(this.name+this.age+"说，做喵不傲娇和狗有什么区别");
+		}
+		var cat1=new Cat();
+		var cat2=new Cat();//赋值就近原则
+		cat1.sayhi();//指向同一个地址
+		cat2.sayhi();*/
+
+
+		//完善原型
+		/*function Cat(name,age){
+			this.name=name;
+			this.age=age;
+		}
+		Cat.prototype.sayhi=function(){
+			alert(this.name+this.age+"说，做喵不傲娇和狗有什么区别");
+		}
+		var cat1=new Cat('1','2');
+		var cat2=new Cat('2','3');//赋值就近原则
+		cat1.sayhi();//指向同一个地址
+		cat2.sayhi();*/
+
+		//通过字面量方式创建原型对象
+		/*function Cat(name,age){
+			this.name=name;
+			this.age=age;
+		}
+		Cat.prototype={
+			constructor:Cat,//强制指向Cat
+			sayhi:function(){
+				alert(this.name+this.age+"说，做喵不傲娇和狗有什么区别");
+			}
+		}
+		var cat1=new Cat('a',2);
+		var cat2=new Cat('b',3);//赋值就近原则
+		cat1.sayhi();//指向同一个地址
+		alert(cat1.constructor==Cat);
+		cat2.sayhi();*/
+
+		//内置对象增加方法 通过原型
+		String.prototype.addstr=function(){
+			return this+'here';
+		}
+		alert("hahha".addstr())
+	})
+</script>

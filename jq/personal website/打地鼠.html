@@ -14,51 +14,61 @@ table caption{
 	font-size:30px;
 }
 table td{
-	width:100px;
-	height: 100px;
+	width:200px;
+	height: 150px;
 }
 img{
-	margin-top:31px;
-	width:150px;
-	height: 100px;
+	margin-top:50px;
 }
 </style>
 <body>
 	<table>
 	<caption>打地鼠</caption>
 		<tr>
-			<td><img src="images/keng.png"></td>
-			<td><img src="images/keng.png"></td>
-			<td><img src="images/keng.png"></td>
+			<td><img src="images/dong.png"></td>
+			<td><img src="images/dong.png"></td>
+			<td><img src="images/dong.png"></td>
 		</tr>
 		<tr>
-			<td><img src="images/keng.png"></td>
-			<td><img src="images/keng.png"></td>
-			<td><img src="images/keng.png"></td>
+			<td><img src="images/dong.png"></td>
+			<td><img src="images/dong.png"></td>
+			<td><img src="images/dong.png"></td>
 		</tr>
 		<tr>
-			<td><img src="images/keng.png"></td>
-			<td><img src="images/keng.png"></td>
-			<td><img src="images/keng.png"></td>
+			<td><img src="images/dong.png"></td>
+			<td><img src="images/dong.png"></td>
+			<td><img src="images/dong.png"></td>
 		</tr>
 	</table>
 </body>
 </html>
 <script type="text/javascript">
 	$(function(){
-		//1 现获取到所有图片
+		//1 现获取到所有图片Math.random()*400+800
 		var mouse=document.getElementsByTagName("img");
 		var num;
 		setTimeout(maochulai(),Math.random()*400+800);
 		//2 随机出现老鼠
 		function maochulai(){
 			num=Math.floor(Math.random()*9);
-			mouse[num].src="images/shang.png";
-			mouse[num].setAttribute("onclick","da()");
-			mouse[num].style.marginTop="0px";
+			mouse[num].src="images/shu.png";
+			mouse[num].setAttribute("onclick","da();");
+			mouse[num].style.marginTop="12px";
+			setTimeout(hui,Math.random()*400+800);
 		}
 		//3 死了
+		da=function(){
+			mouse[num].src="images/shang.png";
+			mouse[num].removeAttribute("onclick");
+			mouse[num].style.marginTop="20px";
+		}
 		//4 没死
+		function hui(){
+			mouse[num].src="images/dong.png";
+			mouse[num].removeAttribute("onclick");
+			mouse[num].style.marginTop="50px";
+			setTimeout(maochulai(),Math.random()*400+800);
+		}
 
 	})
 

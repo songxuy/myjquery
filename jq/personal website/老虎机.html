@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>老虎机</title>
+	<script src="script/jquery-3.1.1.min.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+<div class="content">
+	<ul class="bg">
+	<li class="current"><a href="#"><img src="images/j1.jpg"></a></li>
+	<li><a href="#"><img src="images/j2.jpg"></a></li>
+	<li><a href="#"><img src="images/j3.jpg"></a></li>
+	<li><a href="#"><img src="images/j4.jpg"></a></li>
+	<li><a href="#"><img src="images/j5.jpg"></a></li>
+	<li><a href="#"><img src="images/j6.jpg"></a></li>
+	</ul>
+	<!--小圆点导航-->
+	<ul class="indication">
+		<li id="bg_1" class="active"></li>
+		<li id="bg_2"></li>
+		<li id="bg_3"></li>
+		<li id="bg_4"></li>
+		<li id="bg_5"></li>
+		<li id="bg_6"></li>
+	</ul>
+	<!--左右箭头导航-->
+	<div class="btn btn_left"><</div>
+	<div class="btn btn_right">></div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+	var index=0;
+	var timer;
+	//定时器：setTimeout（只执行一次） setInterval(每隔多长时间执行一次)
+	$(function(){
+		//找到所有的图片
+		var pic=$('.bg li');//找到所有的li
+		var lis=$('.indication li');//找到所有的小圆点
+		function changepic(){
+			pic.eq(index).addClass('current').siblings().removeClass("current");
+			lis.eq(index).addClass('active').siblings().removeClass("current");
+		}
+		Showtime();
+		//点击圆点换图
+		lis.hover(function(){
+			index=$(this).index();
+			changepic();
+			clearInterval(timer);
+		},function(){
+			Showtime();
+		})
+		$('.btn_left').click(function(){
+			clearInterval(timer);
+			if (index == 0) {
+            index = 6;
+        }
+        index--;
+        changepic();
+        Showtime();
+		})
+		$('.btn_right').click(function(){
+			clearInterval(timer);
+			if (index == 5) {
+            index = -1;
+        }
+        index++;
+        changepic();
+        Showtime();
+		})
+		function Showtime() {
+    	timer = setInterval(function () {//间隔多久干什么
+        index++;
+        if (index == 6) {
+            index = 0;
+        }
+        changepic();
+    }, 3000);
+}
+	})
+</script>

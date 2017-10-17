@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>抽奖</title>
+	<script src="script/jquery-3.1.1.min.js" type="text/javascript"></script>
+</head>
+<style>
+#box{
+	width:300px;
+	height: 100px;
+	position: absolute;
+	left:500px;
+	top:200px;
+	background-color: cornsilk;
+	font-size:50px;
+	text-align: center;
+	line-height: 100px;
+	color:#000;
+	border-radius: 10px;
+}
+#jiang{
+	width:300px;
+	height: 100px;
+	position: absolute;
+	left:500px;
+	top:350px;
+	background-color: cornsilk;
+	font-size:50px;
+	text-align: center;
+	line-height: 100px;
+	color:#000;
+	border-radius: 10px;
+}
+</style>
+<body>
+	<button id="start">开始</button>
+	<button id="stop">停止</button>
+	<div id="box">人员名单</div>
+	<div id="jiang"></div>
+</body>
+</html>
+<script type="text/javascript">
+	$(function(){
+		//初始化数据
+		var list=['宋旭缘','周奕','罗帅','唐','雷','白欣灵','李亦','国芳','澄江','吴磊','教授','狗子','星星','缘分'];
+		var jiang=['MAC','OPPO R11','100积分','电视机','手机壳','泸沽湖3日游','伊利牛奶1箱','洗衣粉','谢谢参与'];
+		var timer;
+		//事件绑定
+		$('#start').click(function(){
+			$('#jiang').html("等待抽奖中");
+			timer=setInterval(function(){
+				//随机切换人员姓名
+			var n=Math.floor(Math.random()*list.length);
+			$('#box').html(list[n]);
+			},50);
+		})
+		$('#stop').click(function(){
+			clearInterval(timer);
+			var n=Math.floor(Math.random()*list.length);
+			$('#box').html(list[n]);
+			if(list[n]!='宋旭缘'){
+				$('#jiang').html(jiang[8]);
+			}else{
+			var num=Math.floor(Math.random()*jiang.length);
+			$('#jiang').html(jiang[num]);
+			}
+		})
+		//初始化数据
+
+
+	})
+
+</script>
